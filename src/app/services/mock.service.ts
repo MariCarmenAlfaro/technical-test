@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MockService {
-  private apiUrl = 'http://localhost:3000/posts';
+  private apiUrl = 'http://localhost:3000/songs';
 
   constructor(private http: HttpClient) { }
 
