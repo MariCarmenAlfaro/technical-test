@@ -1,0 +1,53 @@
+.coming-soon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f4f6;
+    font-family: Arial, sans-serif;
+  }
+  
+  .message h1 {
+    font-size: 3rem;
+    color: #ff6cc2;
+    margin-bottom: 20px;
+  }
+  
+  .message p {
+    font-size: 1.5rem;
+    color: #555;
+    text-align: center;
+  }
+  @media (max-width: 1024px) {
+    .message h1 {
+      font-size: 2.5rem;
+    }
+  
+    .message p {
+      font-size: 1rem;
+    }
+
+  }
+  
+  @media (max-width: 768px) {
+    .message h1 {
+      font-size: 2rem;
+    }
+  
+    .message p {
+      font-size: 1rem;
+    }
+
+  }
+  
+  @media (max-width: 480px) {
+    .message h1 {
+      font-size: 1.5rem;
+    }
+  
+    .message p {
+      font-size: 0.8rem;
+    }
+
+  }

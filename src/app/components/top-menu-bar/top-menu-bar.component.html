@@ -1,0 +1,20 @@
+
+<div class="test">
+    <p-button (click)="visible = true" icon="pi pi-arrow-right" severity="secondary"/>
+<p-drawer [(visible)]="visible" header="Menú" class="test">
+    <div class="menu-options">
+
+        <ul class="list-items">
+            @for(item of menuListItems; track item.title){
+                    <p-button 
+                label="{{item.title}}" 
+                icon="pi pi-list" 
+                class="p-button-outlined p-button-sm" 
+                (click)="onOptionSelect(item)">
+                
+            </p-button>
+        }
+        </ul>
+    </div>
+</p-drawer>
+</div>
