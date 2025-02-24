@@ -6,15 +6,14 @@
 
         <ul class="list-items">
             @for(item of menuListItems; track item.title){
-                    <p-button 
-                label="{{item.title}}" 
-                icon="pi pi-list" 
-                class="p-button-outlined p-button-sm" 
-                (click)="onOptionSelect(item)">
-                
-            </p-button>
+                   <li (click)="onOptionSelect(item)" class="list-item-name"> 
+                     <span> {{item.title}}  </span>
+
+            </li> 
+ 
         }
         </ul>
     </div>
+
 </p-drawer>
 </div>
