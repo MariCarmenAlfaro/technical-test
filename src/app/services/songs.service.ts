@@ -2,21 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SongEntity } from '../entities/songs/song.interface';
-import { ArtistEntity } from '../entities/artists/artist.interface';
+import { environment } from '../enviroments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MockService {
-  private apiUrl = 'http://localhost:3000';
+export class SongsService {
+  private apiUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
-  getSongs(): Observable<SongEntity[]> {
+  getAllSongs(): Observable<SongEntity[]> {
     return this.http.get<SongEntity[]>(this.apiUrl+`/songs`);
   }
 
-  getArtists(): Observable<ArtistEntity[]> {
-    return this.http.get<ArtistEntity[]>(this.apiUrl+`/artists`);
+  postSongs(rq: any): Observable<SongEntity[]> {
+    return this.http.post<SongEntity[]>(this.apiUrl+`/songs`, rq);
   }
 }

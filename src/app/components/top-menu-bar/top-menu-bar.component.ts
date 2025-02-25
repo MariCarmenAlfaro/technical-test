@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { Drawer, DrawerModule } from 'primeng/drawer';
-import { MockService } from '../../services/mock.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../enviroments/environment';
 import { SongsComponent } from '../songs/songs.component';
@@ -17,9 +16,7 @@ import { ComunicaionService } from '../../services/comunication.service';
   styleUrl: './top-menu-bar.component.scss'
 })
 export class TopMenuBarComponent implements OnInit{
-  constructor(
-    public  test:MockService, 
-    private router: Router, private comunicationService: ComunicaionService)
+  constructor(private router: Router, private comunicationService: ComunicaionService)
     {}
 
     lastSegment = ''
@@ -36,7 +33,7 @@ export class TopMenuBarComponent implements OnInit{
   onOptionSelect(item: any) {
     this.typeItem= item
     this.comunicationService.actualizarMensaje(item); 
-    const fullUrl = `${environment.apiBaseUrl}${item.route}`;
+    const fullUrl = `${environment.webBaseUrl}${item.route}`;
     window.location.href = fullUrl;  
   }
 }
