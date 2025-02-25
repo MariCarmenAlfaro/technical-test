@@ -1,0 +1,43 @@
+<form [formGroup]="songForm" (ngSubmit)="saveNewSong()">
+  <label>Título:</label>
+  <input formControlName="title" type="text" placeholder="Título de la canción" required />
+
+  <label>Artista:</label>
+  <select formControlName="artist" required>
+    <option value="" disabled>Seleccione un artista</option>
+    @for(artist of artists; track artist.id){
+    <option [value]="artist.id">{{ artist.name }}</option>
+    }
+  </select>
+
+  <label>Género:</label>
+  <select formControlName="genre" multiple>
+    @for(genre of genres; track genre.id) {
+    <option [value]="genre.title">{{ genre.title }}</option>
+    }
+  </select>
+
+  <label>Compañía Discográfica:</label>
+  <select formControlName="recordLabel" required>
+    <option value="" disabled>Seleccione una compañia</option>
+    @for(label of companies; track label.id){
+    <option [value]="label.id">{{ label.name }}</option>
+    }
+  </select>
+
+  <label>País:</label>
+  <select formControlName="country">
+    <option value="" disabled>Seleccione un país</option>
+    @for(cou of countries; track cou.id){
+    <option [value]="cou">{{ cou.name }}</option>
+    }
+  </select>
+
+  <label>Año:</label>
+  <p-datepicker formControlName="year" view="year" dateFormat="yy" />
+
+  <label>Puntuación (0-10):</label>
+  <input formControlName="rating" type="number" step="0.1" min="0" max="10" placeholder="Puntuación" required />
+
+  <button type="submit">Guardar Canción</button>
+</form>

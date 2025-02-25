@@ -1,3 +1,5 @@
+@if(!newSong){
+<button (click)="newSong = true" style="width: 500px;">+</button>
 <div class="songs-countainer">
     @for(song of songsList; track song.id){
     <div class="song-list-container">
@@ -10,3 +12,13 @@
     </div>
     }
 </div>
+}
+
+@if(newSong){
+    <button (click)="newSong = false">BACK</button>
+    <app-create-song   [artists]="artistsList"
+    [companies]="companiesList"
+    [genres]="genresList"
+    [countries]="countriesList" (songFormValues)="createNewSong($event)"></app-create-song>
+}
+<p-toast />
