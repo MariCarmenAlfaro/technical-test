@@ -1,1 +1,12 @@
-<p>songs works!</p>
+<div class="songs-countainer">
+    @for(song of songsList; track song.id){
+    <div class="song-list-container">
+        <h1 class="song-title">{{song.title}} ({{song.artistName}})</h1>
+        <div class="img-item">
+        <img  [src]="song.poster" alt=""></div>
+        @for(genre of song.genre; track genre){
+        <span class="genre-items"> #{{genre}}</span>
+        }
+    </div>
+    }
+</div>

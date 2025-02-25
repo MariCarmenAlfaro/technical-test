@@ -8,6 +8,7 @@ import { environment } from '../../enviroments/environment';
 import { SongsComponent } from '../songs/songs.component';
 import { ArtistsComponent } from '../artists/artists.component';
 import { RouterOutlet } from '@angular/router';
+import { ComunicaionService } from '../../services/comunication.service';
 @Component({
   selector: 'app-top-menu-bar',
   standalone: true,
@@ -18,12 +19,12 @@ import { RouterOutlet } from '@angular/router';
 export class TopMenuBarComponent implements OnInit{
   constructor(
     public  test:MockService, 
-    private router: Router,)
+    private router: Router, private comunicationService: ComunicaionService)
     {}
 
     lastSegment = ''
   typeItem:any
-  menuListItems = [{title:'Canciones', route:'/songs'},{title:'Artistas', route:'/artists'},{title:'Compañías discográficas', route:'/companies'}]
+  menuListItems = [{title:'Inicio', route:'/home'},{title:'Canciones', route:'/songs'},{title:'Artistas', route:'/artists'},{title:'Compañías discográficas', route:'/companies'}]
   ngOnInit(): void {
   }
   @ViewChild('drawerRef') drawerRef!: Drawer;
@@ -33,9 +34,8 @@ export class TopMenuBarComponent implements OnInit{
       this.drawerRef.close(e);
   }
   onOptionSelect(item: any) {
-  
-    this.test.title = item.title
     this.typeItem= item
+    this.comunicationService.actualizarMensaje(item); 
     const fullUrl = `${environment.apiBaseUrl}${item.route}`;
     window.location.href = fullUrl;  
   }

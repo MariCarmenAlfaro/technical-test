@@ -1,0 +1,49 @@
+
+.song-list-container{
+    border: 1px black solid;
+    margin: 2rem 1rem;
+
+}
+.song-title{
+    font-size: 2rem;
+    margin: 1.5rem;
+}
+.genre-items{
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.img-item img{
+    width: 100%;
+}
+.img-item {
+    margin: 1.5rem;
+   
+}
+@media (max-width: 1024px) {
+    .song-title  {
+      font-size: 1.8rem;
+      margin: 0.9rem;
+
+    }
+    .img-item img{
+        width: 100%;
+    }
+    .img-item {
+        margin: 0.9rem;
+    }
+
+  }
+  @media (max-width: 480px) {
+    .song-title {
+      font-size: 1.3em;
+      margin: 0.3rem;
+    }
+    .img-item img{
+        width: 100%;
+    }
+    .img-item {
+        margin: 0.3rem;
+    }
+
+  }
