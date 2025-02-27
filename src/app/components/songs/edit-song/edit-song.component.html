@@ -1,4 +1,5 @@
 
+@if(!loading){
     @if(!isEditing){
     <div>
         <div class="songs-countainer">
@@ -23,6 +24,8 @@
                     <div class="img-item">
                         <img [src]="song.poster" alt="">
                     </div>
+                    <p><strong>Género:</strong> {{ song.genre.join(', ') || 'No definido' }}</p>
+
                     <label>Género:</label>
                     <p-multiselect [options]="genres" formControlName="genre" optionLabel="title"
                         placeholder="Select Cities" [maxSelectedLabels]="3" styleClass="w-full md:w-80" />
@@ -49,3 +52,9 @@
     <button (click)="deleteSong()">
         Eliminar
     </button>
+}
+
+@if(loading){
+    <!--Jira:"ID-Jira" Falta configurar estilos adecuadamente -->
+    <p-progress-spinner ariaLabel="loading" />
+}

@@ -34,7 +34,9 @@
 
 <p-toast />}
 @if(loading){
+    <!-- JIRA: "ID-Jira" Falta configurar estilos adecuadamente -->
     <div class="songs-countainer">
+        @for(skeleton of totalCardsSkeleton; track skeleton){
     <div class="song-list-container">
         <p-skeleton width="22rem" height="3rem" styleClass="mb-2" class="song-title"/> 
         <div class="img-item">
@@ -45,6 +47,6 @@
             <p-skeleton width="6rem" height="1.5rem"/>
         </div>
     </div>
-    
+}
 </div>
 }

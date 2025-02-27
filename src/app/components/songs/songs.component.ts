@@ -30,6 +30,8 @@ export class SongsComponent implements OnInit {
   updateSongBool: boolean = false;
   songToUpdate : SongEntity
   loading: boolean = true
+  totalCardsSkeleton: number[] = [1, 2, 3, 4];
+
   constructor(
     private songsService: SongsService,
     private artistsService: ArtistsService,

@@ -4,11 +4,11 @@ import { SelectModule } from 'primeng/select';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DatePickerModule } from 'primeng/datepicker';
 import { SongEntity } from '../../../entities/songs/song.interface';
-
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 @Component({
   selector: 'app-edit-song',
   standalone: true,
-  imports: [SelectModule, MultiSelectModule,ReactiveFormsModule, FormsModule, DatePickerModule],
+  imports: [SelectModule, MultiSelectModule,ReactiveFormsModule, FormsModule, DatePickerModule, ProgressSpinnerModule],
   templateUrl: './edit-song.component.html',
   styleUrl: './edit-song.component.scss'
 })
@@ -22,19 +22,22 @@ export class EditSongComponent implements OnInit{
   @Output() songFormValues = new EventEmitter<any>(); 
   @Output() songDelete = new EventEmitter<any>(); 
   countryName
-  songCompanyName
+  songCompanyName: any
   isEditing = false; 
   editForm!: FormGroup;
   selectedCountry: any
-  
+  loading: boolean = true
   constructor(private fb: FormBuilder){}
 
   ngOnInit(): void {
-    //Suponiendo que el país de la canción es el país del artista
-    this.countryName = this.artists.find(x=>x.id== this.song.artist)
-    this.songCompanyName = this.companies.find(x => x.songs.some(songId => songId === Number(this.song.id))) ?? null;
-
-    this.selectedCountry = this.countries.find(x=> x.name == this.countryName.bornCity)
+    if(this.song != null){
+      this.loading = false;
+      //Suponiendo que el país de la canción es el país del artista
+      this.countryName = this.artists.find(x=>x.id== this.song.artist)
+      this.songCompanyName = this.companies.find(x => x.songs.some(songId => songId === Number(this.song.id))) ?? null;
+  
+      this.selectedCountry = this.countries.find(x=> x.name == this.countryName.bornCity)
+    }
   }
 
   toggleEdit() {
