@@ -19,4 +19,12 @@ export class SongsService {
   postSongs(rq: any): Observable<SongEntity[]> {
     return this.http.post<SongEntity[]>(this.apiUrl+`/songs`, rq);
   }
+
+  updateSongs(rq: any): Observable<boolean> {
+    return this.http.put<boolean>(this.apiUrl+`/songs`, rq);
+  }
+  
+  deleteSongs(id: any): Observable<boolean> {
+    return this.http.delete<boolean>(this.apiUrl+`/songs/${id}`);
+  }
 }

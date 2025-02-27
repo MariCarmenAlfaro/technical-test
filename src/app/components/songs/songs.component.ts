@@ -10,11 +10,13 @@ import { CountriesService } from '../../services/countries.service';
 import { GenresService } from '../../services/genres.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { EditSongComponent } from './edit-song/edit-song.component';
+import { SkeletonModule } from 'primeng/skeleton';
 
 @Component({
   selector: 'app-songs',
   standalone: true,
-  imports: [CreateSongComponent,ToastModule],
+  imports: [CreateSongComponent,ToastModule, EditSongComponent,SkeletonModule],
   templateUrl: './songs.component.html',
   styleUrl: './songs.component.scss',
 })
@@ -25,7 +27,9 @@ export class SongsComponent implements OnInit {
   countriesList: any[] = [];
   genresList: any[] = [];
   newSong: boolean = false;
-
+  updateSongBool: boolean = false;
+  songToUpdate : SongEntity
+  loading: boolean = true
   constructor(
     private songsService: SongsService,
     private artistsService: ArtistsService,
@@ -56,7 +60,10 @@ export class SongsComponent implements OnInit {
 
   readAllSongs(){
     this.songsService.getAllSongs().subscribe((rs) => {
-      this.songsList = rs;
+      if(rs){
+       this.songsList = rs;
+       this.loading = false
+      }
     });
 
   }
@@ -78,8 +85,36 @@ export class SongsComponent implements OnInit {
       }
     })
   }
+  deleteSong($event){
+    this.updateSongBool = false
+    this.songsService.deleteSongs($event).subscribe((rs)=>{
+      if(rs){
+      this.messageService.add({ severity: 'success', detail: 'Canción eliminada' });
+      this.readAllSongs()
+    }
+    });
+  }
+  updateSongs(rq) {
+    //El update tambien se haria en las relaciones de country y company
+    var request =     {
+      "id":rq.id,
+      "title": rq.title,
+      "genre": rq.genre,
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "year": new Date(rq.yearSelected).getFullYear(),
+      "artist": Number(rq.artist)
+    }
+    this.songsService.updateSongs(request).subscribe((rs)=>{
+      if(rs != null){
+        this.messageService.add({ severity: 'success', detail: 'Canción editada' });
+        this.newSong = false;
+        this.readAllSongs();
+      }
+    })
+  }
 
-  // editSong($event){
-
-  // }
+  editSong($event){
+    this.updateSongBool = true
+    this.songToUpdate = $event
+  }
 }
