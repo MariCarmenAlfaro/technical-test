@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { DatePickerModule } from 'primeng/datepicker';
 import { MultiSelectModule } from 'primeng/multiselect';
@@ -8,7 +9,7 @@ import { SelectModule } from 'primeng/select';
 @Component({
   selector: 'app-create-song',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, DatePickerModule, ButtonModule,SelectModule, MultiSelectModule],
+  imports: [ReactiveFormsModule, FormsModule, DatePickerModule, ButtonModule,SelectModule, MultiSelectModule, TranslateModule],
   templateUrl: './create-song.component.html',
   styleUrl: './create-song.component.scss'
 })

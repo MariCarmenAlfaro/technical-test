@@ -13,11 +13,12 @@ import { ToastModule } from 'primeng/toast';
 import { EditSongComponent } from './edit-song/edit-song.component';
 import { SkeletonModule } from 'primeng/skeleton';
 import { ButtonModule } from 'primeng/button';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-songs',
   standalone: true,
-  imports: [CreateSongComponent,ToastModule, EditSongComponent,SkeletonModule, ButtonModule],
+  imports: [CreateSongComponent,ToastModule, EditSongComponent,SkeletonModule, ButtonModule, TranslateModule],
   templateUrl: './songs.component.html',
   styleUrl: './songs.component.scss',
 })
@@ -44,15 +45,9 @@ export class SongsComponent implements OnInit {
   ngOnInit(): void {
     this.readAllSongs();
     this.readArtists();
-    this.countriesService.getAllCountries().subscribe((rs) => {
-      this.countriesList = rs;
-    });
-    this.companiesService.getAllCompanies().subscribe((rs) => {
-      this.companiesList = rs;
-    });
-    this.genresServices.getAllGenre().subscribe((rs) => {
-      this.genresList = rs;
-    });
+    this.readAllCompanies();
+    this.readAllCountries();
+    this.readAllGenres();
 
   }
 
@@ -74,6 +69,27 @@ export class SongsComponent implements OnInit {
       });
     });
   }
+
+  readAllCompanies(){
+    this.companiesService.getAllCompanies().subscribe((rs) => {
+      this.companiesList = rs;
+    });
+
+  }
+  
+  readAllCountries(){
+    this.countriesService.getAllCountries().subscribe((rs) => {
+      this.countriesList = rs;
+    });
+
+  }
+
+  readAllGenres(){
+    this.genresServices.getAllGenre().subscribe((rs) => {
+      this.genresList = rs;
+    });
+  }
+
   createNewSong(rq) {
     var request =     {
       "title": rq.title,

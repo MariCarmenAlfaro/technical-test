@@ -7,11 +7,11 @@
                 <div class="img-item">
                     <img [src]="song.poster" alt="">
                 </div>
-                <p><strong>Género:</strong> {{ song.genre.join(', ') || 'No definido' }}</p>
-                <p><strong>Compañía discográfica:</strong> {{ songCompanyName?.name || 'No definido' }}</p>
-                <p><strong>País:</strong> {{ selectedCountry?.name || 'No definido' }}</p>
+                <p><strong>{{ 'genre-input' | translate }}:</strong> {{ song.genre.join(', ') || 'No definido' }}</p>
+                <p><strong>{{ 'company-input' | translate }}:</strong> {{ songCompanyName?.name || 'No definido' }}</p>
+                <p><strong>{{ 'country-input' | translate }}:</strong> {{ selectedCountry?.name || 'No definido' }}</p>
 
-                <p><strong>Año:</strong> {{ song.year || 'No definido' }}</p>
+                <p><strong>{{ 'year-input' | translate }}:</strong> {{ song.year || 'No definido' }}</p>
             </div>
         </div>
     }
@@ -24,25 +24,25 @@
                     <div class="img-item">
                         <img [src]="song.poster" alt="">
                     </div>
-                    <p><strong>Género:</strong> {{ song.genre.join(', ') || 'No definido' }}</p>
+                    <p><strong>{{ 'genre-input' | translate }}:</strong> {{ song.genre.join(', ') || 'No definido' }}</p>
                     <div class="input-edit-form">
-                        <label>Género:</label>
+                        <label>{{ 'genre-input' | translate }}:</label>
                         <p-multiselect [options]="genres" formControlName="genre" optionLabel="title"
                             placeholder="Select Cities" [maxSelectedLabels]="3" styleClass="w-full md:w-80" />
                     </div>
                     @if(companies.length < 0){ <div class="input-edit-form">
-                        <label>Compañía Discográfica:</label>
+                        <label>{{ 'company-input' | translate }}:</label>
                         <p-select formControlName="company" [options]="companies" optionLabel="name"
                             placeholder="Select a City" class="w-full md:w-56" />
                 </div>
                 }
                 <div class="input-edit-form">
-                    <label>País:</label>
+                    <label>{{ 'country-input' | translate }}:</label>
                     <p-select formControlName="country" [options]="countries" optionLabel="name"
                         placeholder="Select a City" class="w-full md:w-56" />
                 </div>
                 <div class="input-edit-form">
-                    <label>Año:</label>
+                    <label>{{ 'year-input' | translate }}:</label>
                     <p-datepicker formControlName="yearSelected" view="year" dateFormat="yy" />
                 </div>
             </div>
@@ -53,10 +53,10 @@
 }
 <div class="button-container">
     <p-button (click)="isEditing ? saveChanges() : toggleEdit()" severity="secondary">
-        {{ isEditing ? 'Guardar' : 'Editar' }}
+        {{ isEditing ? ('save-btn' | translate) : ('edit-btn' | translate) }}
     </p-button>
     <p-button (click)="deleteSong()" severity="secondary">
-        Eliminar
+        {{ 'delete-btn' | translate }}
     </p-button>
     </div>
         }
