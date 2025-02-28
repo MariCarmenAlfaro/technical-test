@@ -1,7 +1,7 @@
 {
   "songs": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Who did you think i was",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
       "genre": [
@@ -15,7 +15,7 @@
       "artist": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Penny Lane",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
       "genre": [
@@ -29,7 +29,7 @@
       "artist": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Hey Jude",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
       "genre": [
@@ -43,7 +43,7 @@
       "artist": 2
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "(I Can't Get No) Satisfaction",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
       "genre": [
@@ -57,7 +57,7 @@
       "artist": 4
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Where the Streets Have No Name",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
       "genre": [
@@ -71,7 +71,7 @@
       "artist": 5
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Who Says",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
       "genre": [
@@ -84,7 +84,7 @@
       "artist": 1
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "With or without you",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
       "genre": [
@@ -99,7 +99,7 @@
       "artist": 5
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Start Me Up",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
       "genre": [
@@ -113,7 +113,7 @@
       "artist": 4
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "1979",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
       "genre": [
@@ -127,7 +127,7 @@
       "artist": 6
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Voodoo Child",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
       "genre": [
@@ -141,7 +141,7 @@
       "artist": 7
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Hey Joe",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
       "genre": [
@@ -153,11 +153,23 @@
       "duration": 502,
       "rating": 8.39,
       "artist": 7
+    },
+    {
+      "id": "9dc1",
+      "title": "Camisa negra",
+      "genre": [
+        "Rock"
+      ],
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "duration": 0,
+      "year": 2004,
+      "rating": 10,
+      "artist": null
     }
   ],
   "artists": [
     {
-      "id": 1,
+      "id": "1",
       "name": "John Mayer",
       "bornCity": "Conecticut",
       "birthdate": "16/10/1977",
@@ -169,7 +181,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "The Beatles",
       "bornCity": "Liverpool",
       "birthdate": "19/04/1975",
@@ -181,7 +193,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "John Lennon",
       "bornCity": "Liverpool",
       "birthdate": "10/04/1986",
@@ -194,7 +206,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "The Rolling Stones",
       "bornCity": "London",
       "birthdate": "04/08/1990",
@@ -206,7 +218,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "U2",
       "bornCity": "London",
       "birthdate": "30/12/1990",
@@ -218,7 +230,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "The Smashing Pumpkins",
       "bornCity": "Pitomača",
       "birthdate": "02/01/1968",
@@ -229,7 +241,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Jimi Hendrix",
       "bornCity": "London",
       "birthdate": "28/10/1953",
@@ -243,7 +255,7 @@
   ],
   "companies": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Apple Corps Ltd",
       "country": "Colombia",
       "createYear": 1968,
@@ -255,7 +267,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Vinilo Some Girls",
       "country": "England",
       "createYear": 2005,
@@ -267,7 +279,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Universal Music Group (UMG)",
       "country": "Greece",
       "createYear": 1994,
@@ -280,7 +292,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Warner Music Group (WMG)",
       "country": "Philippines",
       "createYear": 2005,
@@ -292,7 +304,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Sony Music Entertainment (SME)",
       "country": "China",
       "createYear": 1999,
@@ -301,103 +313,130 @@
       "songs": []
     }
   ],
-"genres": [
-  {
-    "id": 1,
-    "title": "Pop",
-    "code": "POP"
-  },
-  {
-    "id": 2,
-    "title": "Rock",
-    "code": "ROCK"
-  },
-  {
-    "id": 3,
-    "title": "Hip-Hop",
-    "code": "HIPHOP"
-  },
-  {
-    "id": 4,
-    "title": "Jazz",
-    "code": "JAZZ"
-  },
-  {
-    "id": 5,
-    "title": "Electronic",
-    "code": "ELEC"
-  }
-],
-"countries": [
-  {
-    "id": 1,
-    "name": "United States",
-    "code": "US"
-  },
-  {
-    "id": 2,
-    "name": "France",
-    "code": "FR"
-  },
-  {
-    "id": 3,
-    "name": "Mexico",
-    "code": "MX"
-  },
-  {
-    "id": 4,
-    "name": "Brazil",
-    "code": "BR"
-  },
-  {
-    "id": 5,
-    "name": "Japan",
-    "code": "JP"
-  },
-  {
-    "id": 6,
-    "name": "Germany",
-    "code": "DE"
-  },
-  {
-    "id": 7,
-    "name": "South Korea",
-    "code": "KR"
-  },
-  {
-    "id": 8,
-    "name": "United Kingdom",
-    "code": "GB"
-  },
-  {
-    "id": 9,
-    "name": "Canada",
-    "code": "CA"
-  },
-  {
-    "id": 10,
-    "name": "Italy",
-    "code": "IT"
-  },
-  {
-    "id": 11,
-    "name": "Spain",
-    "code": "ES"
-  },
-  {
-    "id": 12,
-    "name": "Argentina",
-    "code": "AR"
-  },
-  {
-    "id": 13,
-    "name": "Australia",
-    "code": "AU"
-  },
-  {
-    "id": 14,
-    "name": "India",
-    "code": "IN"
-  }
-]
+  "genres": [
+    {
+      "id": "1",
+      "title": "Pop",
+      "code": "POP"
+    },
+    {
+      "id": "2",
+      "title": "Rock",
+      "code": "ROCK"
+    },
+    {
+      "id": "3",
+      "title": "Hip-Hop",
+      "code": "HIPHOP"
+    },
+    {
+      "id": "4",
+      "title": "Jazz",
+      "code": "JAZZ"
+    },
+    {
+      "id": "5",
+      "title": "Electronic",
+      "code": "ELEC"
+    }
+  ],
+  "countries": [
+    {
+      "id": "1",
+      "name": "United States",
+      "code": "US"
+    },
+    {
+      "id": "2",
+      "name": "France",
+      "code": "FR"
+    },
+    {
+      "id": "3",
+      "name": "Mexico",
+      "code": "MX"
+    },
+    {
+      "id": "4",
+      "name": "Brazil",
+      "code": "BR"
+    },
+    {
+      "id": "5",
+      "name": "Japan",
+      "code": "JP"
+    },
+    {
+      "id": "6",
+      "name": "Germany",
+      "code": "DE"
+    },
+    {
+      "id": "7",
+      "name": "South Korea",
+      "code": "KR"
+    },
+    {
+      "id": "8",
+      "name": "United Kingdom",
+      "code": "GB"
+    },
+    {
+      "id": "9",
+      "name": "Canada",
+      "code": "CA"
+    },
+    {
+      "id": "10",
+      "name": "Italy",
+      "code": "IT"
+    },
+    {
+      "id": "11",
+      "name": "Spain",
+      "code": "ES"
+    },
+    {
+      "id": "12",
+      "name": "Argentina",
+      "code": "AR"
+    },
+    {
+      "id": "13",
+      "name": "Australia",
+      "code": "AU"
+    },
+    {
+      "id": "14",
+      "name": "India",
+      "code": "IN"
+    },
+    {
+      "id": "15",
+      "name": "Liverpool",
+      "code": "LIV"
+    }
+  ],
+  "menuListItems":[
+    {
+      "id": 1,
+      "title": "Inicio",
+      "route": "/home"
+    },
+    {
+      "id": 2,
+      "title": "Canciones",
+      "route": "/songs"
+    },
+    {
+      "id": 3,
+      "title": "Artistas",
+      "route": "/artists"
+    },
+    {
+      "id": 4,
+      "title": "Compañías discográficas",
+      "route": "/companies"
+    }
+  ]
 }

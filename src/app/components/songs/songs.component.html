@@ -2,7 +2,7 @@
      <div class="container-list">
     @if(!newSong && !updateSongBool){
     <div class="btn-container">
-        <p-button (click)="newSong = true" severity="secondary" class="btn-add-song">ADD</p-button>
+        <p-button (click)="newSong = true" severity="secondary" class="btn-add-song">{{'add-new-song' | translate }}</p-button>
     </div>
     <div class="songs-countainer">
         @for(song of songsList; track song.id){
@@ -21,7 +21,7 @@
 
     @if(newSong){
     <div class="btn-container">
-        <p-button (click)="newSong = false" severity="secondary" class="btn-back">BACK</p-button>
+        <p-button (click)="newSong = false" severity="secondary" class="btn-back">{{ 'back-list' | translate }}</p-button>
     </div>
     <app-create-song [artists]="artistsList" [companies]="companiesList" [genres]="genresList"
         [countries]="countriesList" (songFormValues)="createNewSong($event)"></app-create-song>
@@ -29,7 +29,7 @@
 
     @if(updateSongBool){
     <div class="btn-container">
-        <p-button (click)="updateSongBool = false" severity="secondary" class="btn-back">BACK</p-button>
+        <p-button (click)="updateSongBool = false" severity="secondary" class="btn-back">{{ 'back-list' | translate }}</p-button>
     </div>
     <app-edit-song [song]="songToUpdate" [artists]="artistsList" [companies]="companiesList" [genres]="genresList"
         [countries]="countriesList" (songFormValues)="updateSongs($event)" (songDelete)="deleteSong($event)">

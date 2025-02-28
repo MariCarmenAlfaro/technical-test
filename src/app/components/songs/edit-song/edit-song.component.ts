@@ -6,10 +6,11 @@ import { DatePickerModule } from 'primeng/datepicker';
 import { SongEntity } from '../../../entities/songs/song.interface';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ButtonModule } from 'primeng/button';
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-edit-song',
   standalone: true,
-  imports: [SelectModule, MultiSelectModule,ReactiveFormsModule, FormsModule, DatePickerModule, ProgressSpinnerModule, ButtonModule],
+  imports: [SelectModule, MultiSelectModule,ReactiveFormsModule, FormsModule, DatePickerModule, ProgressSpinnerModule, ButtonModule, TranslateModule],
   templateUrl: './edit-song.component.html',
   styleUrl: './edit-song.component.scss'
 })
