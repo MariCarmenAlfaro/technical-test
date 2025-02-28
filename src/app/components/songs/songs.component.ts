@@ -12,11 +12,12 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { EditSongComponent } from './edit-song/edit-song.component';
 import { SkeletonModule } from 'primeng/skeleton';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-songs',
   standalone: true,
-  imports: [CreateSongComponent,ToastModule, EditSongComponent,SkeletonModule],
+  imports: [CreateSongComponent,ToastModule, EditSongComponent,SkeletonModule, ButtonModule],
   templateUrl: './songs.component.html',
   styleUrl: './songs.component.scss',
 })
@@ -42,6 +43,7 @@ export class SongsComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.readAllSongs();
+    this.readArtists();
     this.countriesService.getAllCountries().subscribe((rs) => {
       this.countriesList = rs;
     });
@@ -51,13 +53,7 @@ export class SongsComponent implements OnInit {
     this.genresServices.getAllGenre().subscribe((rs) => {
       this.genresList = rs;
     });
-    this.artistsService.getAllArtists().subscribe((rs) => {
-      this.artistsList = rs;
-      this.songsList.forEach((s) => {
-        var artist = this.artistsList.find((x) => Number(x.id) == s.artist);
-        s.artistName = artist ? artist.name : '';
-      });
-    });
+
   }
 
   readAllSongs(){
@@ -67,12 +63,21 @@ export class SongsComponent implements OnInit {
        this.loading = false
       }
     });
+  }
 
+  readArtists(){
+    this.artistsService.getAllArtists().subscribe((rs) => {
+      this.artistsList = rs;
+      this.songsList.forEach((s) => {
+        var artist = this.artistsList.find((x) => Number(x.id) == s.artist);
+        s.artistName = artist ? artist.name : '';
+      });
+    });
   }
   createNewSong(rq) {
     var request =     {
       "title": rq.title,
-      "genre": rq.genre,
+      "genre": rq.genre.map(x=>x.title),
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
       "duration":0,
       "year": new Date(rq.year).getFullYear(),
@@ -84,9 +89,11 @@ export class SongsComponent implements OnInit {
         this.messageService.add({ severity: 'success', detail: 'Canción guardada' });
         this.newSong = false;
         this.readAllSongs();
+        this.readArtists()
       }
     })
   }
+
   deleteSong($event){
     this.updateSongBool = false
     this.songsService.deleteSongs($event).subscribe((rs)=>{
@@ -96,6 +103,7 @@ export class SongsComponent implements OnInit {
     }
     });
   }
+  
   updateSongs(rq) {
     //El update tambien se haria en las relaciones de country y company
     var request =     {

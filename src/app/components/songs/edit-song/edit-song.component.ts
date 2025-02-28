@@ -5,10 +5,11 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { DatePickerModule } from 'primeng/datepicker';
 import { SongEntity } from '../../../entities/songs/song.interface';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-edit-song',
   standalone: true,
-  imports: [SelectModule, MultiSelectModule,ReactiveFormsModule, FormsModule, DatePickerModule, ProgressSpinnerModule],
+  imports: [SelectModule, MultiSelectModule,ReactiveFormsModule, FormsModule, DatePickerModule, ProgressSpinnerModule, ButtonModule],
   templateUrl: './edit-song.component.html',
   styleUrl: './edit-song.component.scss'
 })
