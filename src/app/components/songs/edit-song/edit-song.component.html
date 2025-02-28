@@ -1,0 +1,67 @@
+<div class="edit-mode-container">
+    @if(!loading){
+    @if(!isEditing){
+        <div class="songs-countainer">
+            <div class="song-list-container">
+                <h1 class="song-title">{{song.title}} ({{song.artistName}})</h1>
+                <div class="img-item">
+                    <img [src]="song.poster" alt="">
+                </div>
+                <p><strong>Género:</strong> {{ song.genre.join(', ') || 'No definido' }}</p>
+                <p><strong>Compañía discográfica:</strong> {{ songCompanyName?.name || 'No definido' }}</p>
+                <p><strong>País:</strong> {{ selectedCountry?.name || 'No definido' }}</p>
+
+                <p><strong>Año:</strong> {{ song.year || 'No definido' }}</p>
+            </div>
+        </div>
+    }
+    @if(isEditing){
+    <div class="form-container">
+        <form [formGroup]="editForm">
+            <div class="songs-countainer">
+                <div class="song-list-container">
+                    <h1 class="song-title">{{song.title}} ({{song.artistName}})</h1>
+                    <div class="img-item">
+                        <img [src]="song.poster" alt="">
+                    </div>
+                    <p><strong>Género:</strong> {{ song.genre.join(', ') || 'No definido' }}</p>
+                    <div class="input-edit-form">
+                        <label>Género:</label>
+                        <p-multiselect [options]="genres" formControlName="genre" optionLabel="title"
+                            placeholder="Select Cities" [maxSelectedLabels]="3" styleClass="w-full md:w-80" />
+                    </div>
+                    @if(companies.length < 0){ <div class="input-edit-form">
+                        <label>Compañía Discográfica:</label>
+                        <p-select formControlName="company" [options]="companies" optionLabel="name"
+                            placeholder="Select a City" class="w-full md:w-56" />
+                </div>
+                }
+                <div class="input-edit-form">
+                    <label>País:</label>
+                    <p-select formControlName="country" [options]="countries" optionLabel="name"
+                        placeholder="Select a City" class="w-full md:w-56" />
+                </div>
+                <div class="input-edit-form">
+                    <label>Año:</label>
+                    <p-datepicker formControlName="yearSelected" view="year" dateFormat="yy" />
+                </div>
+            </div>
+    </div>
+
+    </form>
+</div>
+}
+<div class="button-container">
+    <p-button (click)="isEditing ? saveChanges() : toggleEdit()" severity="secondary">
+        {{ isEditing ? 'Guardar' : 'Editar' }}
+    </p-button>
+    <p-button (click)="deleteSong()" severity="secondary">
+        Eliminar
+    </p-button>
+    </div>
+        }
+        @if(loading){
+        <!--Jira:"ID-Jira" Falta configurar estilos adecuadamente -->
+        <p-progress-spinner ariaLabel="loading" />
+        }
+</div>

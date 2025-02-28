@@ -1,12 +1,57 @@
-<div class="songs-countainer">
-    @for(song of songsList; track song.id){
-    <div class="song-list-container">
-        <h1 class="song-title">{{song.title}} ({{song.artistName}})</h1>
-        <div class="img-item">
-        <img  [src]="song.poster" alt=""></div>
-        @for(genre of song.genre; track genre){
-        <span class="genre-items"> #{{genre}}</span>
+@if(!loading){
+     <div class="container-list">
+    @if(!newSong && !updateSongBool){
+    <div class="btn-container">
+        <p-button (click)="newSong = true" severity="secondary" class="btn-add-song">ADD</p-button>
+    </div>
+    <div class="songs-countainer">
+        @for(song of songsList; track song.id){
+        <div class="song-list-container" (click)="editSong(song)">
+            <h1 class="song-title">{{song.title}} ({{song.artistName}})</h1>
+            <div class="img-item">
+                <img [src]="song.poster" alt="">
+            </div>
+            @for(genre of song.genre; track genre){
+            <span class="genre-items"> #{{genre}}</span>
+            }
+        </div>
         }
     </div>
     }
+
+    @if(newSong){
+    <div class="btn-container">
+        <p-button (click)="newSong = false" severity="secondary" class="btn-back">BACK</p-button>
+    </div>
+    <app-create-song [artists]="artistsList" [companies]="companiesList" [genres]="genresList"
+        [countries]="countriesList" (songFormValues)="createNewSong($event)"></app-create-song>
+    }
+
+    @if(updateSongBool){
+    <div class="btn-container">
+        <p-button (click)="updateSongBool = false" severity="secondary" class="btn-back">BACK</p-button>
+    </div>
+    <app-edit-song [song]="songToUpdate" [artists]="artistsList" [companies]="companiesList" [genres]="genresList"
+        [countries]="countriesList" (songFormValues)="updateSongs($event)" (songDelete)="deleteSong($event)">
+    </app-edit-song>
+ }
 </div>
+
+<p-toast />}
+@if(loading){
+<!-- JIRA: "ID-Jira" Falta configurar estilos adecuadamente -->
+<div class="songs-countainer">
+    @for(skeleton of totalCardsSkeleton; track skeleton){
+    <div class="song-list-container">
+        <p-skeleton width="22rem" height="3rem" styleClass="mb-2" class="song-title" />
+        <div class="img-item">
+            <p-skeleton width="22rem" height="12rem" styleClass="mb-2" />
+        </div>
+        <div>
+            <p-skeleton width="6rem" height="1.5rem" styleClass="mr-1" />
+            <p-skeleton width="6rem" height="1.5rem" />
+        </div>
+    </div>
+    }
+</div>
+}
